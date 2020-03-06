@@ -19,15 +19,15 @@ public class Player {
 	
 	
 	
-	public Player(String getName) {
-		 name = getName;
+	public Player(String name) {
+		 this.name = name;
 		 score = 0;
 	}
 	
 	
 	public void describe() {
 		System.out.println(name+": ");
-		for(Card haveCardInHand : getHand.keySet()) {
+		for(Card haveCardInHand : hand) {
 			haveCardInHand.describe();
 		}
 	}
@@ -45,7 +45,13 @@ public class Player {
 		score++;
 	}
 	
+	public int getScore() {
+		return score;
+	}
 	
+	public String getName() {
+		return name;
+	}
 	
 	
 	

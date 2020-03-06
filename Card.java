@@ -9,7 +9,7 @@ public class Card {
 //	}
 	private int value;
 	private String name;
-
+	
 	//constructor 
 	public Card(String name, int value) {
 		this.name = name;
@@ -37,7 +37,7 @@ public class Card {
 
 	//Description of the card
 	public void describe() {
-		System.out.println(name + " " + value);
+		System.out.println(name + ": " + value);
 	}
 
 	
