@@ -77,8 +77,10 @@ public class App {
 			
 			if(pickCardPOne.getValue() > pickCardPTwo.getValue()) {
 				playerOne.incrementScore();
+				//System.out.println(playerOne.getName() + ": "+pickCardPOne.getName().toUpperCase()+ " vs " + playerTwo.getName()+": "+pickCardPTwo.getName());
 			} else if(pickCardPTwo.getValue() > pickCardPOne.getValue()) {
 				playerTwo.incrementScore();
+				//System.out.println(playerOne.getName() + ": "+pickCardPOne.getName() + " vs " + playerTwo.getName()+": "+pickCardPTwo.getName().toUpperCase());
 			} else {
 				//both score
 				System.out.println("Tie you both score");
@@ -87,6 +89,11 @@ public class App {
 				
 			}
 		}
+		
+		
+		//list card vs and bold what is the winner.
+		
+
 		
 		
 		//declare winner
