@@ -91,8 +91,6 @@ public class App {
 		}
 		
 		
-		//list card vs and bold what is the winner.
-		
 
 		
 		
