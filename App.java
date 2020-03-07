@@ -4,44 +4,42 @@ import java.util.Scanner;
 public class App {
 
 	public static void main(String[] args) {
-		Scanner scanner = new Scanner(System.in);
+		Scanner input = new Scanner(System.in);
+		Scanner numInput = new Scanner(System.in);
 		
 		int numOfPlayers = 0;
 		String getPlayerOneName = "";
 		String getPlayerTwoName = "";
 		
+		//shuffle deck
 		Deck deck = new Deck();
 		deck.shuffle();
 		
-		
+		//find number of players
+		System.out.println("Welcome to the card game War!\n");
 		System.out.println("1) One Player");
-		System.out.println("2) Two Players");
-		System.out.println("3) Play");
-		System.out.println("Welcome to the card game War!");
+		System.out.println("2) Two Players\n");
 		System.out.print("Please Select Number Players: ");
 		
-		numOfPlayers = scanner.nextInt();
+		numOfPlayers = numInput.nextInt();
 		
-		System.out.println("You selected: " + numOfPlayers);
 		
-		while(numOfPlayers != 3) {
 		if(numOfPlayers == 1) {
-			System.out.print("Name of Player One: ");
-			getPlayerOneName = scanner.nextLine();
-			
-			System.out.println("Welcome: " + getPlayerOneName);
-			
-			getPlayerTwoName = "Com";
-			
+		System.out.print("Please add name of Player One: ");
+		getPlayerOneName = input.nextLine();
+		
+		System.out.println("Welcome : " + getPlayerOneName);
+		getPlayerTwoName = "Com";
+		
+		
 		} else if(numOfPlayers == 2) {
 			System.out.print("Name of Player One: ");
-			getPlayerOneName = scanner.nextLine();
+			getPlayerOneName = input.nextLine() + "\n";
+
 			
-			System.out.println("Welcome: " + getPlayerOneName);
-			
-			System.out.println("Name of Player Two: ");
-			getPlayerTwoName = scanner.nextLine();
-			System.out.println("Welcome: " + getPlayerTwoName);
+			System.out.print("Name of Player Two: ");
+			getPlayerTwoName = input.nextLine();
+			System.out.println("Welcome: " + getPlayerOneName + " and "+ getPlayerTwoName+"\n");
 			
 			
 		} else {
@@ -49,7 +47,6 @@ public class App {
 			getPlayerOneName = "Com1";
 			getPlayerTwoName = "Com2" ;
 		}
-	}
 		
 		
 		Player playerOne = new Player(getPlayerOneName);
@@ -65,9 +62,13 @@ public class App {
 	
 		}
 		
-		System.out.println(playerOne.getName() + " vs " + playerTwo.getName() );
+		System.out.println(playerOne.getName() + " vs " + playerTwo.getName()+ "\n");
 		
+		//list the cards in hand per player
 		playerOne.describe();
+		System.out.println("");
+		playerTwo.describe();
+		
 		//playing game
 		for(int i = 0; i < 26;i++) {
 			Card pickCardPOne = playerOne.flip();
@@ -79,13 +80,17 @@ public class App {
 			} else if(pickCardPTwo.getValue() > pickCardPOne.getValue()) {
 				playerTwo.incrementScore();
 			} else {
-				System.out.println("Tie");
+				//both score
+				System.out.println("Tie you both score");
+				playerOne.incrementScore();
+				playerTwo.incrementScore();
+				
 			}
 		}
 		
 		
 		//declare winner
-		System.out.println(playerOne.getName() + "score: " + playerOne.getScore() + ","+ playerTwo.getName()+"score: "+ playerTwo.getScore());
+		System.out.println(playerOne.getName() + " score: " + playerOne.getScore() + ", "+ playerTwo.getName()+" score: "+ playerTwo.getScore());
 		if(playerOne.getScore() > playerTwo.getScore()) {
 			System.out.println("Winner: " + playerOne.getName());
 		} else if(playerOne.getScore() < playerTwo.getScore()) {

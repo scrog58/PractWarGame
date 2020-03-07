@@ -26,7 +26,7 @@ public class Player {
 	
 	
 	public void describe() {
-		System.out.println(name+": ");
+		System.out.println(name+"\'s hand: ");
 		for(Card haveCardInHand : hand) {
 			haveCardInHand.describe();
 		}
