@@ -10,7 +10,6 @@ public class Player {
 //
 //	}
 	private List<Card> hand = new ArrayList<Card>();
-	private Map<Card, Card> getHand = new HashMap<Card, Card>();
 	private int score;
 	private String name;
 	//private String name2;
